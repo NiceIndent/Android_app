@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NiceIndent</string>
+    <string name="title_home">home</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_notifications">Map</string>
+    <string name="pic">写真</string>>
+</resources>
