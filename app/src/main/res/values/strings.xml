@@ -6,4 +6,8 @@
     <string name="pic">写真</string>>
 
     <string name="expline">ランドマークの説明</string>
+
+    <string name="map">マップ</string>
+    <string name="return_map">戻る</string>
+
 </resources>

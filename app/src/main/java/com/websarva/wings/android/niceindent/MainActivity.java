@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.navigation_maps:
                     //mTextMessage.setText(R.string.title_notifications);
+                    Intent intent = new Intent(MainActivity.this, MapActivity.class);
+                    startActivity(intent);
                     return true;
             }
             return false;
