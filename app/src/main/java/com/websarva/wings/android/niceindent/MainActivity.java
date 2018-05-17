@@ -14,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import android.content.Intent;
@@ -45,9 +47,10 @@ public class MainActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_maps:
-                    //mTextMessage.setText(R.string.title_notifications);
-                    Intent intent = new Intent(MainActivity.this, MapActivity.class);
-                    startActivity(intent);
+                    WebView webView = (WebView) findViewById(R.id.navigation_maps);
+                    webView.getSettings().setJavaScriptEnabled(true);
+                    webView.setWebViewClient(new WebViewClient());
+                    webView.loadUrl("https://www.google.com/maps");
                     return true;
             }
             return false;
