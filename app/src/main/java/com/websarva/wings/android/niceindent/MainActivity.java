@@ -11,44 +11,48 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
+
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private TextView mTextMessage;
     private Uri _imageUri;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
-                    return true;
+                    return false;
 
                 case R.id.navigation_camera:
                     mTextMessage.setText(R.string.title_camera);
                     onCameraMenuClick();
 
-                    return true;
+                    return false;
 
                 case R.id.navigation_maps:
                     //mTextMessage.setText(R.string.title_notifications);
                     Intent intent = new Intent(MainActivity.this, MapActivity.class);
+                    int data1 = 1;
+                    intent.putExtra("menu_number", data1);
+                    int requestCode = 1;
+                    startActivityForResult( intent, requestCode );
                     startActivity(intent);
-                    return true;
+
+                    return false;
             }
             return false;
         }
@@ -119,4 +123,6 @@ public class MainActivity extends AppCompatActivity {
             //onNavigationItemSelected(MenuItem )
         }
     }
+
+
 }
